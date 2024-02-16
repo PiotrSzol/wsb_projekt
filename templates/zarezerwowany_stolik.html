@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Wolne stoliki - Restauracja{% endblock %}
+
+{% block content %}
+    {% for stolik in result %}
+        <div>
+            <p>Numer stolika: {{ stolik.numer }}</p>
+            <p>Ilość miejsc: {{ stolik.ilosc_miejsc }}</p>
+            <form action="{{ url_for('zarezerwowany_stolik') }}" method="post">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
+            <input type="submit" value="Usuń stolik">
+            </form>
+
+            <form action="{{ url_for('zarezerwowany_stolik') }}" method="post">
+            <input type="hidden" name="action" value="reserve">
+            <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
+            <input type="submit" value="Usuń rezerwacje">
+            </form>
+
+        </div>
+    {% endfor %}
+{% endblock %}
