@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Dodaj danie na miejscu</h2>
+    <form action="{{ url_for('na_miejscu') }}" method="post">
+        <label for="nazwa">Nazwa dania:</label><br>
+        <input type="text" id="nazwa" name="nazwa" required><br>
+
+        <label for="cena">Cena:</label><br>
+        <input type="number" id="cena" name="cena" step="0.01" min="0" required><br>
+
+        <label for="nr_stolika">Numer stolika:</label><br>
+        <input type="text" id="nr_stolika" name="nr_stolika" required><br>
+
+        <input type="submit" value="Zatwierdź">
+    </form>
+{% endblock %}
