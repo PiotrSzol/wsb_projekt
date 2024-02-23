@@ -1,0 +1,8 @@
+venv
+readme.md
+.gitignore
+.git
+Dockerfile
+.idea
+__pycache__
+.dockerignore
