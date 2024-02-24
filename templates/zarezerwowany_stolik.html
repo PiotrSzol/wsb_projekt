@@ -3,22 +3,24 @@
 {% block title %}Wolne stoliki - Restauracja{% endblock %}
 
 {% block content %}
-    {% for stolik in result %}
-        <div>
-            <p>Numer stolika: {{ stolik.numer }}</p>
-            <p>Ilość miejsc: {{ stolik.ilosc_miejsc }}</p>
-            <form action="{{ url_for('zarezerwowany_stolik') }}" method="post">
-            <input type="hidden" name="action" value="delete">
-            <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
-            <input type="submit" value="Usuń stolik">
-            </form>
+    <div style="margin-top: 20px;">
+        {% for stolik in result %}
+            <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 10px;">
+                <p><strong>Numer stolika:</strong> {{ stolik.numer }}</p>
+                <p><strong>Ilość miejsc:</strong> {{ stolik.ilosc_miejsc }}</p>
 
-            <form action="{{ url_for('zarezerwowany_stolik') }}" method="post">
-            <input type="hidden" name="action" value="reserve">
-            <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
-            <input type="submit" value="Usuń rezerwacje">
-            </form>
+                <form action="{{ url_for('zarezerwowany_stolik') }}" method="post" style="display: inline-block;">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
+                    <input type="submit" value="Usuń stolik">
+                </form>
 
-        </div>
-    {% endfor %}
+                <form action="{{ url_for('zarezerwowany_stolik') }}" method="post" style="display: inline-block;">
+                    <input type="hidden" name="action" value="reserve">
+                    <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
+                    <input type="submit" value="Usuń rezerwacje">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

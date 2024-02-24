@@ -5,6 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Restauracja{% endblock %}</title>
+    <style>
+        /* Resetowanie marginesów i paddingów dla całej strony */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styl dla nagłówka */
+        header {
+            background-color: #333; /* Kolor tła */
+            color: #fff; /* Kolor tekstu */
+            padding: 20px; /* Wewnętrzne wypełnienie */
+            text-align: center; /* Wycentrowanie tekstu */
+        }
+
+        /* Styl dla głównego nagłówka */
+        header h1 {
+            font-size: 24px; /* Rozmiar czcionki */
+        }
+
+        /* Styl dla nawigacji */
+        nav ul {
+            list-style-type: none; /* Usunięcie standardowego znacznika listy */
+            padding: 10px 0; /* Wewnętrzne wypełnienie na górze i dołu */
+            text-align: center; /* Wycentrowanie tekstu */
+        }
+
+        nav ul li {
+            display: inline; /* Wyświetlanie elementów listy w jednej linii */
+            margin-right: 20px; /* Margines na prawo między elementami listy */
+        }
+
+        nav ul li a {
+            color: #fff; /* Kolor tekstu linku */
+            text-decoration: none; /* Usunięcie podkreślenia linku */
+        }
+
+        /* Styl dla stopki */
+        footer {
+            background-color: #333; /* Kolor tła */
+            color: #fff; /* Kolor tekstu */
+            padding: 20px; /* Wewnętrzne wypełnienie */
+            text-align: center; /* Wycentrowanie tekstu */
+            position: fixed; /* Stała pozycja na dole ekranu */
+            left: 0; /* Odległość od lewej krawędzi */
+            bottom: 0; /* Odległość od dolnej krawędzi */
+            width: 100%; /* Szerokość stopki */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,7 +61,6 @@
         <nav>
             <ul>
                 <li><a href="{{ url_for('home') }}">Strona główna</a></li>
-                <li><a href="{{ url_for('menu') }}">Menu</a></li>
                 <li><a href="{{ url_for('kontakt') }}">Kontakt</a></li>
                 <li><a href="{{ url_for('zarezerwuj_stolik') }}">Dodaj stolik</a></li>
                 <li><a href="{{ url_for('wolny_stolik') }}">Wolne stoliki</a></li>
@@ -33,3 +81,4 @@
         <p>&copy; 2024 Restauracja XYZ</p>
     </footer>
 </body>
+</html>

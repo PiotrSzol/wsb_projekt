@@ -4,16 +4,15 @@
 
 {% block content %}
     {% for danie_na_wynos in result %}
-        <div>
-            <p>Nazwa dania: {{ danie_na_wynos.nazwa }}</p>
-            <p>Cena: {{ danie_na_wynos.cena }} zł</p>
-            <p>Adres dostawy: {{ danie_na_wynos.adres }}</p>
-            <form action="{{ url_for('wyswietl_na_wynos') }}" method="post">
-            <input type="hidden" name="action" value="delete">
-            <input type="hidden" name="danie_na_wynos_id" value="{{ danie_na_wynos.id }}">
-            <input type="submit" value="Usuń danie">
+        <div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><strong>Nazwa dania:</strong> {{ danie_na_wynos.nazwa }}</p>
+            <p><strong>Cena:</strong> {{ danie_na_wynos.cena }} zł</p>
+            <p><strong>Adres dostawy:</strong> {{ danie_na_wynos.adres }}</p>
+            <form action="{{ url_for('wyswietl_na_wynos') }}" method="post" style="margin-top: 10px;">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="danie_na_wynos_id" value="{{ danie_na_wynos.id }}">
+                <input type="submit" value="Usuń danie" style="padding: 5px 10px; background-color: #333; color: #fff; border: none; cursor: pointer;">
             </form>
-
         </div>
     {% endfor %}
 {% endblock %}

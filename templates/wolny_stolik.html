@@ -4,24 +4,23 @@
 
 {% block content %}
     {% for stolik in result %}
-        <div>
-            <p>Numer stolika: {{ stolik.numer }}</p>
-            <p>Ilość miejsc: {{ stolik.ilosc_miejsc }}</p>
-            <p>Osoba zarezerwowała: {{ stolik.osoba_zarezerwowala }}</p>
-            <p>Godzina rezerwacji: {{ stolik.godzina_rezerwacji }}</p>
-            <p>Dzień rezerwacji: {{ stolik.dzien_rezerwacji }}</p>
-            <form action="{{ url_for('wolny_stolik') }}" method="post">
-            <input type="hidden" name="action" value="delete">
-            <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
-            <input type="submit" value="Usuń stolik">
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+            <p><strong>Numer stolika:</strong> {{ stolik.numer }}</p>
+            <p><strong>Ilość miejsc:</strong> {{ stolik.ilosc_miejsc }}</p>
+            <p><strong>Osoba zarezerwowała:</strong> {{ stolik.osoba_zarezerwowala }}</p>
+            <p><strong>Godzina rezerwacji:</strong> {{ stolik.godzina_rezerwacji }}</p>
+            <p><strong>Dzień rezerwacji:</strong> {{ stolik.dzien_rezerwacji }}</p>
+            <form action="{{ url_for('wolny_stolik') }}" method="post" style="display: inline-block; margin-right: 10px;">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
+                <input type="submit" value="Usuń stolik" style="padding: 5px 10px; background-color: #f00; color: #fff; border: none; cursor: pointer;">
             </form>
 
-            <form action="{{ url_for('wolny_stolik') }}" method="post">
-            <input type="hidden" name="action" value="reserve">
-            <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
-            <input type="submit" value="Zarezerwuj stolik">
+            <form action="{{ url_for('wolny_stolik') }}" method="post" style="display: inline-block;">
+                <input type="hidden" name="action" value="reserve">
+                <input type="hidden" name="stolik_id" value="{{ stolik.id }}">
+                <input type="submit" value="Zarezerwuj stolik" style="padding: 5px 10px; background-color: #008000; color: #fff; border: none; cursor: pointer;">
             </form>
-
         </div>
     {% endfor %}
 {% endblock %}

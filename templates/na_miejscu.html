@@ -1,18 +1,17 @@
-
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Dodaj danie na miejscu</h2>
-    <form action="{{ url_for('na_miejscu') }}" method="post">
-        <label for="nazwa">Nazwa dania:</label><br>
-        <input type="text" id="nazwa" name="nazwa" required><br>
+    <h2 style="margin-top: 20px; text-align: center;">Dodaj danie na miejscu</h2>
+    <form action="{{ url_for('na_miejscu') }}" method="post" style="text-align: center;">
+        <label for="nazwa" style="display: block; margin-top: 10px;">Nazwa dania:</label>
+        <input type="text" id="nazwa" name="nazwa" required style="margin-top: 5px; padding: 5px;"><br>
 
-        <label for="cena">Cena:</label><br>
-        <input type="number" id="cena" name="cena" step="0.01" min="0" required><br>
+        <label for="cena" style="display: block; margin-top: 10px;">Cena:</label>
+        <input type="number" id="cena" name="cena" step="0.01" min="0" required style="margin-top: 5px; padding: 5px;"><br>
 
-        <label for="nr_stolika">Numer stolika:</label><br>
-        <input type="text" id="nr_stolika" name="nr_stolika" required><br>
+        <label for="nr_stolika" style="display: block; margin-top: 10px;">Numer stolika:</label>
+        <input type="text" id="nr_stolika" name="nr_stolika" required style="margin-top: 5px; padding: 5px;"><br>
 
-        <input type="submit" value="Zatwierdź">
+        <input type="submit" value="Zatwierdź" style="margin-top: 20px; padding: 10px 20px; background-color: #333; color: #fff; border: none; cursor: pointer;">
     </form>
 {% endblock %}
